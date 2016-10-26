@@ -1,0 +1,14 @@
+{
+  "systemCommandsHeader": {
+    "label": "System Commands",
+    "type": "header",
+    "examples": [
+      "shutdown"
+    ]
+  },
+  "enableShutdown": {
+    "title": "Enable Shutdown",
+    "type": "boolean",
+    "default": true
+  }
+}
