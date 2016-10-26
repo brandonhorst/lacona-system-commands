@@ -1,6 +1,6 @@
 {
   "name": "lacona-system-commands",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "description": "Lacona System Commands",
   "lacona": {
     "title": "System Commands"
