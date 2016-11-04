@@ -1,13 +1,54 @@
 {
   "systemCommandsHeader": {
-    "label": "System Commands",
     "type": "header",
     "examples": [
-      "shutdown"
+      "restart",
+      "shutdown",
+      "sleep",
+      "lock",
+      "log out",
+      "turn on screensaver",
+      "turn off display",
+      "empty trash"
     ]
+  },
+  "enableRestart": {
+    "title": "Enable Restart",
+    "type": "boolean",
+    "default": true
   },
   "enableShutdown": {
     "title": "Enable Shutdown",
+    "type": "boolean",
+    "default": true
+  },
+  "enableSleep": {
+    "title": "Enable Sleep",
+    "type": "boolean",
+    "default": true
+  },
+  "enableLock": {
+    "title": "Enable Lock",
+    "type": "boolean",
+    "default": true
+  },
+  "enableLogOut": {
+    "title": "Enable Log Out",
+    "type": "boolean",
+    "default": true
+  },
+  "enableScreensaver": {
+    "title": "Enable Start Screensaver",
+    "type": "boolean",
+    "default": true
+  },
+  "enableTurnOffDisplay": {
+    "title": "Enable Turn Off Display",
+    "type": "boolean",
+    "default": true
+  },
+  "enableEmptyTrash": {
+    "title": "Enable Empty Trash",
     "type": "boolean",
     "default": true
   }

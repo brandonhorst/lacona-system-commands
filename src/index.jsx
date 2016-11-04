@@ -30,6 +30,19 @@ export const SystemCommands = {
   
   execute,
 
+  filterResult (result, {config}) {
+    return (
+      (result.verb === 'restart' && config.enableRestart) ||
+      (result.verb === 'shutdown' && config.enableShutdown) ||
+      (result.verb === 'sleep' && config.enableSleep) ||
+      (result.verb === 'lock' && config.enableLock) ||
+      (result.verb === 'log out' && config.enableLogOut) ||
+      (result.verb === 'empty-trash' && config.enableEmptyTrash) ||
+      (result.verb === 'screensaver' && config.enableScreensaver) ||
+      (result.verb === 'display-off' && config.enableTurnOffDisplay)
+    )
+  },
+
   describe () {
     return (
       <choice>
@@ -43,25 +56,25 @@ export const SystemCommands = {
             {text: 'logout', value: 'log out'},
             {text: 'log off', value: 'log out'},
             {text: 'logoff', value: 'log out'}
-          ]} category='action' id='verb' limit={5} />
-          <list items={[' computer', ' the computer', ' system', ' the system']} limit={1} optional limited category='action' />
+          ]} id='verb' unique />
+          <list items={[' computer', ' the computer', ' system', ' the system']} limit={1} optional limited />
         </sequence>
         <sequence id='verb' value='empty-trash'>
-          <literal text='empty ' category='action' />
-          <literal text='the ' optional limited category='action' />
-          <literal text='Trash' category='action' />
+          <literal text='empty ' />
+          <literal text='the ' optional limited />
+          <literal text='Trash' />
         </sequence>
         <sequence id='verb' value='screensaver'>
-          <literal text='turn on ' category='action'/>
-          <literal text='the ' optional limited category='action' />
-          <list items={['screensaver', 'screensaver']} limit={1} category='action' />
+          <list items={['turn on ', ' start ']} limit={1} />
+          <literal text='the ' optional limited />
+          <list items={['screensaver']} limit={1} />
         </sequence>
         <sequence id='verb'>
-          <literal text='turn off ' category='action' />
-          <literal text='the ' optional limited category='action' />
+          <literal text='turn off ' />
+          <literal text='the ' optional limited />
           <choice merge>
-            <list items={['display', 'screen']} limit={1} category='action' value='display-off' />
-            <list items={['computer', 'system']} limit={1} category='action' value='shutdown' />
+            <list items={['display', 'screen']} limit={1} value='display-off' />
+            <list items={['computer', 'system']} limit={1} value='shutdown' />
           </choice>
         </sequence>
       </choice>
@@ -69,4 +82,4 @@ export const SystemCommands = {
   }
 }
 
-export const extensions = [SystemComands]
+export const extensions = [SystemCommands]

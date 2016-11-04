@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Lacona System Commands",
   "lacona": {
-    "title": "System Commands"
+    "title": "System Commands",
+    "customPreferences": true,
+    "description": "Run miscellaneous system commands."
   },
   "main": "lib/index.js",
   "scripts": {
